@@ -30,11 +30,11 @@ RUN set -ex && \
 
 ENV BITCOIN_DATA /data
 RUN mkdir $BITCOIN_DATA && \
-    ln -s $BITCOIN_DATA /home/.bitcoin
+    ln -s $BITCOIN_DATA $HOME/.bitcoin
 VOLUME /data
 
-COPY docker-entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 EXPOSE 8333 18333
 CMD ["bitcoind"]

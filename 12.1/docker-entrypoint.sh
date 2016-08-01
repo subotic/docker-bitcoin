@@ -10,7 +10,7 @@ if [ "$1" = 'bitcoind' ]; then
     echo "rpcpassword=$(cat /dev/urandom | env LC_CTYPE=C tr -dc a-zA-Z0-9 | head -c45)" >> "$BITCOIN_DATA/bitcoin.conf"
 	fi
 
-	exec "$@" -server
+	exec "$@"
 fi
 
 exec "$@"
